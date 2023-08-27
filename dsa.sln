@@ -5,6 +5,10 @@ VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ds-tree", "ds-tree\ds-tree.csproj", "{A922C925-C54A-44EF-8634-9256424AC952}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ds-collection", "ds-collection\ds-collection.csproj", "{FE41B2D0-6FB2-4BD7-A46A-4B8673BA6AE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{CECB5DBB-3DE1-4801-9352-A46951B94109}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A922C925-C54A-44EF-8634-9256424AC952}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A922C925-C54A-44EF-8634-9256424AC952}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A922C925-C54A-44EF-8634-9256424AC952}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE41B2D0-6FB2-4BD7-A46A-4B8673BA6AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE41B2D0-6FB2-4BD7-A46A-4B8673BA6AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE41B2D0-6FB2-4BD7-A46A-4B8673BA6AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE41B2D0-6FB2-4BD7-A46A-4B8673BA6AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CECB5DBB-3DE1-4801-9352-A46951B94109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CECB5DBB-3DE1-4801-9352-A46951B94109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CECB5DBB-3DE1-4801-9352-A46951B94109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CECB5DBB-3DE1-4801-9352-A46951B94109}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
