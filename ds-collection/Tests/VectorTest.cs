@@ -9,9 +9,26 @@ public class VectorTest
     Aluno a2 = new Aluno("Jose");
 
     Vector vector = new Vector();
-    vector.Add(a1);
-    vector.Add(a2);
 
+    Console.WriteLine(vector.Size());
+    vector.Add(a1);
+    Console.WriteLine(vector.Size());
+    vector.Add(a2);
+    Console.WriteLine(vector.Size());
+
+    Console.WriteLine(vector);
+
+    Console.WriteLine(vector.Contains(a1));
+
+    Aluno a3 = new Aluno("Danilo");
+    Console.WriteLine(vector.Contains(a3));
+
+    Console.WriteLine(vector.Get(1));
+
+    vector.Add(1, a3);
+    Console.WriteLine(vector);
+
+    vector.Remove(1);
     Console.WriteLine(vector);
   }
 }
