@@ -7,6 +7,7 @@ public class Vector
   private int totalAlunos = 0;
 
   public void Add(Aluno aluno){
+    increaseCapacity();
     alunos[totalAlunos] = aluno;
     totalAlunos++;
   }
@@ -14,7 +15,19 @@ public class Vector
   private bool ValidPosition(int posicao){
     return posicao >= 0 && posicao <= totalAlunos;
   }
+
+  private void increaseCapacity(){
+    if(totalAlunos == alunos.Length){
+      Aluno[] newArray = new Aluno[alunos.Length * 2];
+      for(int i = 0; i < alunos.Length; i++){
+        newArray[i] = alunos[i];
+      }
+      alunos = newArray;
+    }
+  }
+
   public void Add(int posicao, Aluno aluno){
+    increaseCapacity();
     if(!ValidPosition(posicao))
       throw new ArgumentException("Posição inválida");
 

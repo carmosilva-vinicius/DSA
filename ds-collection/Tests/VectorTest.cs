@@ -30,5 +30,11 @@ public class VectorTest
 
     vector.Remove(1);
     Console.WriteLine(vector);
+
+    for(int i = 0; i < 300; i++){
+      Aluno y = new Aluno("Joao" + i);
+      vector.Add(y);
+    }
+    Console.WriteLine(vector);
   }
 }

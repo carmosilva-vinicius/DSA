@@ -1,3 +1,5 @@
 ﻿using Tests;
 
-VectorTest.testAddVector();
+// VectorTest.testAddVector();
+
+LinkedListTest.testAddLinkedList();
