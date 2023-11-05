@@ -2,4 +2,8 @@
 
 // VectorTest.testAddVector();
 
-LinkedListTest.testAddLinkedList();
+// LinkedListTest.testAddLinkedList();
+
+// StackTest.testStack();
+
+QueueTest.testQueue();
