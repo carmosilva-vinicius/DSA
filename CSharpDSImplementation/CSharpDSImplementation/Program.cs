@@ -1,18 +1,26 @@
 ﻿using CSharpDSImplementation.DataStructures;
 
-DsArray<int> array = new DsArray<int>();
+DsLinkedList list = new();
 
-array.Add(1);
-array.Add(2);
-array.Add(3);
-Console.WriteLine(array.ToString());
-Console.WriteLine(array.Get(1));
+list.Add(1);
+list.Add(2);
+list.Add(3);
+Console.WriteLine(list.ToString());
 
-array.Remove(1);
-Console.WriteLine(array.ToString());
+list.Prepend(0);
+list.Add(4, 4);
+Console.WriteLine(list.ToString());
 
-array.Add(2, 1);
-Console.WriteLine(array.ToString());
-Console.WriteLine(array.Contains(2));
-Console.WriteLine(array.Contains(4));
-Console.WriteLine(array.Length);
+Console.WriteLine(list.Get(2));
+
+list.Remove(2);
+Console.WriteLine(list.ToString());
+
+list.RemoveFirst();
+Console.WriteLine(list.ToString());
+
+list.RemoveLast();
+Console.WriteLine(list.ToString());
+
+list.Add(2, 1);
+Console.WriteLine(list.ToString());
