@@ -1,18 +1,18 @@
 namespace CSharpDSImplementation.DataStructures;
 
-public class Node
+public class Node<T>
 {
-    public Object Data { get; set; }
-    public Node? Next { get; set; }
-    public Node? Previous { get; set; }
+    public T Data { get; set; }
+    public Node<T>? Next { get; set; }
+    public Node<T>? Previous { get; set; }
 
-    public Node(Object data)
+    public Node(T data)
     {
         Data = data;
         Next = null;
     }
 
-    public Node(Object data, Node next)
+    public Node(T data, Node<T> next)
     {
         Data = data;
         Next = next;

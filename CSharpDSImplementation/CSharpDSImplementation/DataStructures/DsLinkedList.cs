@@ -2,38 +2,38 @@ using System.Text;
 
 namespace CSharpDSImplementation.DataStructures;
 
-public class DsLinkedList
+public class DsLinkedList<T>
 {
-    private Node? _first = null;
-    private Node? _last = null;
+    private Node<T>? _first = null;
+    private Node<T>? _last = null;
     public int Length { get; set; } = 0;
 
-    public void Prepend(object data)
+    public void Prepend(T data)
     {
         if(Length == 0)
         {
-            _first = new Node(data);
+            _first = new Node<T>(data);
             _last = _first;
         }
         else
         {
-            var newNode = new Node(data, _first);
+            var newNode = new Node<T>(data, _first);
             _first.Previous = newNode;
             _first = newNode;
         }
         Length++;
     }
 
-    public void Add(object data)
+    public void Add(T data)
     {
         if(Length == 0)
         {
-            _first = new Node(data);
+            _first = new Node<T>(data);
             _last = _first;
         }
         else
         {
-            var newNode = new Node(data);
+            var newNode = new Node<T>(data);
             _last.Next = newNode;
             newNode.Previous = _last;
             _last = newNode;
@@ -41,7 +41,7 @@ public class DsLinkedList
         Length++;
     }
 
-    public void Add(Object data, int index)
+    public void Add(T data, int index)
     {
         if (index == 0)
             Prepend(data);
@@ -51,16 +51,16 @@ public class DsLinkedList
         {
             var previousNode = GetNode(index - 1);
             var nextNode = previousNode.Next!;
-            var newNode = new Node(data, previousNode.Next) { Previous = previousNode };
+            var newNode = new Node<T>(data, previousNode.Next) { Previous = previousNode };
             previousNode.Next = newNode;
             nextNode.Previous = newNode;
             Length++;
         }
     }
 
-    public Object Get(int index) => GetNode(index).Data;
+    public T Get(int index) => GetNode(index).Data;
 
-    private Node GetNode(int index)
+    private Node<T> GetNode(int index)
     {
         if (!OccupiedPosition(index))
             throw new ArgumentException("Index out of range");
@@ -111,14 +111,14 @@ public class DsLinkedList
             RemoveFirst();
         else
         {
-            Node penultimateNode = _last!.Previous!;
+            Node<T> penultimateNode = _last!.Previous!;
             penultimateNode.Next = null;
             _last = penultimateNode;
             Length--;
         }
     }
 
-    public bool Contains(Object data)
+    public bool Contains(T data)
     {
         var currentNode = _first;
         while(currentNode != null)

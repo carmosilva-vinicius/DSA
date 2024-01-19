@@ -4,11 +4,11 @@ namespace DSTests;
 
 public class LinkedListTest
 {
-    private DsLinkedList _list;
+    private DsLinkedList<int> _list;
 
     public LinkedListTest()
     {
-        _list = new DsLinkedList();
+        _list = new DsLinkedList<int>();
 
         _list.Add(1);
         _list.Add(2);
@@ -93,7 +93,7 @@ public class LinkedListTest
     [Fact]
     public void TestToString()
     {
-        var emptyList = new DsLinkedList();
+        var emptyList = new DsLinkedList<int>();
         Assert.Equal("[1, 2, 3]", _list.ToString());
         Assert.Equal("[]", emptyList.ToString());
     }
@@ -109,14 +109,14 @@ public class LinkedListTest
     [Fact]
     public void TestRemovingFirst_EmptyList()
     {
-        var emptyList = new DsLinkedList();
+        var emptyList = new DsLinkedList<int>();
         Assert.Throws<ArgumentException>(() => emptyList.RemoveFirst());
     }
 
     [Fact]
     public void TestRemovingLast_EmptyList()
     {
-        var emptyList = new DsLinkedList();
+        var emptyList = new DsLinkedList<int>();
         Assert.Throws<ArgumentException>(() => emptyList.RemoveLast());
     }
 }
