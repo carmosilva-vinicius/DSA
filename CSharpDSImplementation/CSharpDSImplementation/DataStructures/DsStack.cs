@@ -6,6 +6,7 @@ public class DsStack<T>
 {
     private DsLinkedList<T> _list = new ();
 
+    public int Length => _list.Length;
     public void Insert(T data) => _list.Add(data);
 
     public T Remove()

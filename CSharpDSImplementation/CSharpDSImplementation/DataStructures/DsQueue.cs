@@ -5,6 +5,7 @@ namespace CSharpDSImplementation.DataStructures;
 public class DsQueue<T>
 {
     private readonly DsLinkedList<T> _list = new DsLinkedList<T>();
+    public int Length => _list.Length;
 
     public void Add(T item) => _list.Add(item);
 
