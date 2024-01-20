@@ -20,15 +20,20 @@ public class DsQueue<T>
 
     public override string ToString()
     {
-        StringBuilder sb = new StringBuilder();
-        sb.Append("[");
-        for (int i = 0; i < _list.Length; i++)
+        var sb = new StringBuilder();
+        sb.Append(' ');
+        for (var i = 0; i < _list.Length; i++)
+            sb.Append("=====");
+        sb.Append("\n-> ");
+        for (var i = _list.Length; i > 0; i--)
         {
-            sb.Append(_list.Get(i));
-            if (i != _list.Length - 1)
-                sb.Append(", ");
+            sb.Append(_list.Get(i - 1));
+            if (i != 1)
+                sb.Append(" -> ");
         }
-        sb.Append("]");
+        sb.Append(" ->\n ");
+        for (var i = 0; i < _list.Length; i++)
+            sb.Append("=====");
         return sb.ToString();
     }
 }

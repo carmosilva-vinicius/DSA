@@ -1,4 +1,5 @@
 using CSharpDSImplementation.DataStructures;
+using Xunit.Abstractions;
 
 namespace DSTests;
 
@@ -6,10 +7,12 @@ public class QueueTest
 {
    private DsQueue<int> _intQueue;
    private DsQueue<string> _stringQueue;
+   private ITestOutputHelper _outputHelper;
 
-   public QueueTest()
+   public QueueTest(ITestOutputHelper outputHelper)
    {
-        _intQueue = new DsQueue<int>();
+       _outputHelper = outputHelper;
+       _intQueue = new DsQueue<int>();
         _stringQueue = new DsQueue<string>();
 
         _intQueue.Add(1);
@@ -102,8 +105,9 @@ public class QueueTest
         queue.Add(1);
         queue.Add(2);
         queue.Add(3);
-
-        Assert.Equal("[1, 2, 3]", queue.ToString());
+        _outputHelper.WriteLine(queue.ToString());
+        _outputHelper.WriteLine(" ===============\\n-> 3 -> 2 -> 1 ->\\n ===============");
+        Assert.Equal(" ===============\n-> 3 -> 2 -> 1 ->\n ===============", queue.ToString());
     }
 
     [Fact]
@@ -114,7 +118,7 @@ public class QueueTest
         queue.Add("b");
         queue.Add("c");
 
-        Assert.Equal("[a, b, c]", queue.ToString());
+        Assert.Equal(" ===============\n-> c -> b -> a ->\n ===============", queue.ToString());
     }
 
     [Fact]
@@ -122,7 +126,7 @@ public class QueueTest
     {
         var queue = new DsQueue<string>();
 
-        Assert.Equal("[]", queue.ToString());
+        Assert.Equal(" \n->  ->\n ", queue.ToString());
     }
 
     [Fact]
@@ -135,4 +139,5 @@ public class QueueTest
 
         Assert.Equal(3, queue.Length);
     }
+
 }

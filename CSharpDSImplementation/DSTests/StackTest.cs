@@ -67,13 +67,21 @@ public class StackTest
     public void TestToString_IntStack()
     {
         var stackString = _intStack.ToString();
-        Assert.Equal("[1, 2, 3]", stackString);
+        Assert.Equal("|^|\n|3|\n|2|\n|1|\n|_|", stackString);
     }
 
     [Fact]
     public void TestToString_StringStack()
     {
         var stackString = _stringStack.ToString();
-        Assert.Equal("[a, b, c]", stackString);
+        Assert.Equal("|^|\n|c|\n|b|\n|a|\n|_|", stackString);
+    }
+
+    [Fact]
+    public void TestToString_EmptyStack()
+    {
+        var emptyStack = new DsStack<object>();
+
+        Assert.Equal("|^|\n|_|", emptyStack.ToString());
     }
 }

@@ -19,14 +19,12 @@ public class DsStack<T>
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        sb.Append("[");
-        for (int i = 0; i < _list.Length; i++)
+        sb.Append("|^|\n");
+        for (int i = _list.Length; i > 0 ; i--)
         {
-            sb.Append(_list.Get(i));
-            if (i != _list.Length - 1)
-                sb.Append(", ");
+            sb.Append($"|{_list.Get(i - 1)}|\n");
         }
-        sb.Append("]");
+        sb.Append("|_|");
         return sb.ToString();
     }
 }
