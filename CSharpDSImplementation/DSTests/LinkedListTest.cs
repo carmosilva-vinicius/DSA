@@ -100,7 +100,7 @@ public class LinkedListTest
     public void TestToString_IntList()
     {
         var emptyList = new DsLinkedList<int>();
-        Assert.Equal("[1, 2, 3]", _intList.ToString());
+        Assert.Equal("[1]<->[2]<->[3]<->[]", _intList.ToString());
         Assert.Equal("[]", emptyList.ToString());
     }
 
@@ -202,8 +202,7 @@ public class LinkedListTest
     public void TestToString_StringList()
     {
         var emptyList = new DsLinkedList<string>();
-        Assert.Equal("[a, b, c]", _stringList.ToString());
-        Assert.Equal("[]", emptyList.ToString());
+        Assert.Equal("[a]<->[b]<->[c]<->[]", _stringList.ToString());
     }
 
     [Fact]

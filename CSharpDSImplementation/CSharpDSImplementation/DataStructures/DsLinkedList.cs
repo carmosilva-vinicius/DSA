@@ -4,22 +4,22 @@ namespace CSharpDSImplementation.DataStructures;
 
 public class DsLinkedList<T>
 {
-    private Node<T>? _first = null;
-    private Node<T>? _last = null;
+    private ListNode<T>? _first = null;
+    private ListNode<T>? _last = null;
     public int Length { get; set; } = 0;
 
     public void Prepend(T data)
     {
         if(Length == 0)
         {
-            _first = new Node<T>(data);
+            _first = new ListNode<T>(data);
             _last = _first;
         }
         else
         {
-            var newNode = new Node<T>(data, _first);
-            _first.Previous = newNode;
-            _first = newNode;
+            var newListNode = new ListNode<T>(data, _first);
+            _first.Previous = newListNode;
+            _first = newListNode;
         }
         Length++;
     }
@@ -28,15 +28,15 @@ public class DsLinkedList<T>
     {
         if(Length == 0)
         {
-            _first = new Node<T>(data);
+            _first = new ListNode<T>(data);
             _last = _first;
         }
         else
         {
-            var newNode = new Node<T>(data);
-            _last.Next = newNode;
-            newNode.Previous = _last;
-            _last = newNode;
+            var newListNode = new ListNode<T>(data);
+            _last.Next = newListNode;
+            newListNode.Previous = _last;
+            _last = newListNode;
         }
         Length++;
     }
@@ -49,27 +49,27 @@ public class DsLinkedList<T>
             Add(data);
         else
         {
-            var previousNode = GetNode(index - 1);
-            var nextNode = previousNode.Next!;
-            var newNode = new Node<T>(data, previousNode.Next) { Previous = previousNode };
-            previousNode.Next = newNode;
-            nextNode.Previous = newNode;
+            var previousListNode = GetListNode(index - 1);
+            var nextListNode = previousListNode.Next!;
+            var newListNode = new ListNode<T>(data, previousListNode.Next) { Previous = previousListNode };
+            previousListNode.Next = newListNode;
+            nextListNode.Previous = newListNode;
             Length++;
         }
     }
 
-    public T Get(int index) => GetNode(index).Data;
+    public T Get(int index) => GetListNode(index).Data;
 
-    private Node<T> GetNode(int index)
+    private ListNode<T> GetListNode(int index)
     {
         if (!OccupiedPosition(index))
             throw new ArgumentException("Index out of range");
-        var currentNode = _first!;
+        var currentListNode = _first!;
         for (var i = 0; i < index; i++)
         {
-            currentNode = currentNode.Next!;
+            currentListNode = currentListNode.Next!;
         }
-        return currentNode;
+        return currentListNode;
     }
 
     private bool OccupiedPosition(int index) =>
@@ -83,11 +83,11 @@ public class DsLinkedList<T>
             RemoveLast();
         else
         {
-            var previousNode = GetNode(index - 1);
-            var currentNode = previousNode.Next!;
-            var nextNode = currentNode.Next!;
-            previousNode.Next = nextNode;
-            nextNode!.Previous = previousNode;
+            var previousListNode = GetListNode(index - 1);
+            var currentListNode = previousListNode.Next!;
+            var nextListNode = currentListNode.Next!;
+            previousListNode.Next = nextListNode;
+            nextListNode!.Previous = previousListNode;
             Length--;
         }
     }
@@ -111,40 +111,38 @@ public class DsLinkedList<T>
             RemoveFirst();
         else
         {
-            Node<T> penultimateNode = _last!.Previous!;
-            penultimateNode.Next = null;
-            _last = penultimateNode;
+            ListNode<T> penultimateListNode = _last!.Previous!;
+            penultimateListNode.Next = null;
+            _last = penultimateListNode;
             Length--;
         }
     }
 
     public bool Contains(T data)
     {
-        var currentNode = _first;
-        while(currentNode != null)
+        var currentListNode = _first;
+        while(currentListNode != null)
         {
-            if (currentNode.Data.Equals(data))
+            if (currentListNode.Data.Equals(data))
                 return true;
-            currentNode = currentNode.Next;
+            currentListNode = currentListNode.Next;
         }
         return false;
     }
+
 
     public override string ToString()
     {
         if (Length == 0)
             return "[]";
         var sb = new StringBuilder();
-        sb.Append("[");
-        var currentNode = _first;
-        while(currentNode != null)
+        var currentListNode = _first;
+        while(currentListNode != null)
         {
-            sb.Append(currentNode.Data);
-            if(currentNode.Next != null)
-                sb.Append(", ");
-            currentNode = currentNode.Next;
+            sb.Append($"[{currentListNode.Data}]<->");
+            currentListNode = currentListNode.Next;
         }
-        sb.Append("]");
+        sb.Append("[]");
         return sb.ToString();
     }
 }
